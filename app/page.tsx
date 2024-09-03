@@ -1,4 +1,5 @@
 import Intro from "@/components/intro";
+import NewsletterForm from "@/components/newsletter-form";
 import RecentPosts from "@/components/recent-posts";
 import RecentProject from "@/components/recent-project";
 
@@ -9,6 +10,7 @@ export default function Home() {
         <Intro />
         <RecentPosts />
         <RecentProject />
+        <NewsletterForm />
       </div>
     </section>
   );
