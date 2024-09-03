@@ -1,0 +1,43 @@
+---
+title: "Simplified Guide to Pagination with Prisma"
+summary: "Learn how to implement efficient pagination in your applications using Prisma, with easy-to-follow examples for both offset-based and cursor-based methods."
+image: "/images/prisma-pagination-guide.png"
+author: "Soyeb Islam"
+publishDate: "2024-09-03"
+---
+
+# Simplified Guide to Pagination with Prisma
+
+When building applications, you'll often need to display large amounts of data. Instead of overwhelming users with everything at once, we use **pagination** to split data into manageable chunks. In this post, we'll explore how to implement pagination with Prisma, a modern database toolkit.
+
+## What is Prisma?
+
+Prisma is an open-source ORM (Object-Relational Mapping) tool that simplifies database interactions in Node.js and TypeScript projects. It supports popular databases like PostgreSQL, MySQL, SQLite, and MongoDB.
+
+## Why Use Pagination?
+
+Pagination is essential for improving user experience by:
+
+- Reducing load times.
+- Minimizing data fetched from the database.
+- Enhancing readability by showing data in chunks.
+
+<Counter />
+
+## Implementing Pagination in Prisma
+
+Prisma makes pagination straightforward. The two most common methods are **offset-based** and **cursor-based** pagination.
+
+### Offset-Based Pagination
+
+This method is simple and widely used. It relies on the `skip` and `take` arguments to fetch a specific "page" of data.
+
+```javascript
+const page = 1; // Current page number
+const pageSize = 10; // Number of items per page
+
+const users = await prisma.user.findMany({
+  skip: (page - 1) * pageSize,
+  take: pageSize,
+});
+```
